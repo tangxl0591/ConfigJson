@@ -1,0 +1,5 @@
+{
+  "name": "ConfigJSON Editor",
+  "description": "A dynamic JSON configuration tool that auto-generates forms based on hierarchical data structures, supporting text, boolean, and array types.",
+  "requestFramePermissions": []
+}
