@@ -1,22 +1,44 @@
 {
-  "name": "configjson-editor",
-  "private": true,
-  "version": "0.0.0",
+  "name": "config-json-editor",
+  "version": "1.0.0",
+  "description": "A dynamic JSON configuration tool that auto-generates forms based on hierarchical data structures.",
+  "author": "Developer",
   "type": "module",
+  "main": "main.cjs",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "electron:dev": "vite build && electron .",
+    "build:win": "vite build && electron-builder --win",
+    "dist:win": "npm run build && electron-builder --win"
   },
   "dependencies": {
-    "react-dom": "^19.2.1",
-    "react": "^19.2.1",
-    "lucide-react": "^0.560.0"
+    "lucide-react": "^0.344.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "@vitejs/plugin-react": "^5.0.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  },
+  "build": {
+    "appId": "com.configjson.editor",
+    "productName": "ConfigJSON Editor",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "main.cjs"
+    ],
+    "win": {
+      "target": "nsis"
+    }
   }
 }
